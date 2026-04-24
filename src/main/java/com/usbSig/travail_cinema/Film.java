@@ -1,5 +1,6 @@
 package com.usbSig.travail_cinema;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Collection;
 
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Film {
+public class Film  implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titre;

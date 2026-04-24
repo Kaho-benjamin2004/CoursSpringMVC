@@ -1,25 +1,20 @@
 package com.usbSig.travail_cinema;
 
-import java.sql.Date;
-import java.util.Collection;
+import java.io.Serializable;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.Collection;
+import java.util.Date;
+
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProjectionFilm {
+public class ProjectionFilm  implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Date dateProjection;
@@ -33,6 +28,9 @@ public class ProjectionFilm {
 	
 	@OneToMany(mappedBy = "projectionFilm")
 	private Collection<Ticket>tickets;
+	@ManyToOne
+	@JoinColumn(name = "seance_id")
+	private Seance seance;
 
-	
+
 }

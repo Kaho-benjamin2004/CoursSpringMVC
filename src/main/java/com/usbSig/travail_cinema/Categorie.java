@@ -1,5 +1,6 @@
 package com.usbSig.travail_cinema;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import jakarta.persistence.Entity;
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Categorie {
+public class Categorie  implements Serializable {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
