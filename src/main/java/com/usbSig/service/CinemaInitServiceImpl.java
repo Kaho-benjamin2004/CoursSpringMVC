@@ -43,7 +43,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService{
     public void initVilles() {
         Stream.of("Casablanca","Marrakech","Rabat","Tanger").forEach(nameVille->{
             Ville ville=new Ville();
-            ville.setName(nameVille);
+            ville.setNom(nameVille);
             villeRepository.save(ville);
         });
     }
@@ -122,7 +122,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService{
     public void films() {
         double[] durees=new double[]{1,1.5,2,2,2.5,3};
         List<Categorie> categories=categrieRepository.findAll();
-        Stream.of("Game of Strong","Seigneur des anneaux","Spider man","Cat Woman")
+        Stream.of("12hommesencolere","ForrestGump","GreenBook","LaLigneverte","LeParrain","LeSeigneurdesanneaaux")
                 .forEach(titrefilm->{
                     Film film=new Film();
                     film.setTitre(titrefilm);

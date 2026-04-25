@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +32,7 @@ public class Film  implements Serializable {
 	private Date dateSortie;
 	
 	@OneToMany(mappedBy = "film")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Collection<ProjectionFilm>projectionFilms;
 	
 	@ManyToOne

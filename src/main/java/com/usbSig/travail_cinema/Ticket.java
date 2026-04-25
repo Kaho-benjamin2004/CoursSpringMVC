@@ -1,5 +1,6 @@
 package com.usbSig.travail_cinema;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +27,7 @@ public class Ticket  implements Serializable {
 	private Place place;
 	
 	@ManyToOne
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private ProjectionFilm projectionFilm;
 
 	

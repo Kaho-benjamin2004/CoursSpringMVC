@@ -3,6 +3,7 @@ package com.usbSig.travail_cinema;
 import java.io.Serializable;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,12 +27,15 @@ public class Salle  implements Serializable {
 	private int nombrePlaces;
 	
 	@ManyToOne
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Cinema cinema;
 	
 	@OneToMany(mappedBy = "salle")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Collection<ProjectionFilm>projectionFilms;
 	
 	@OneToMany(mappedBy = "salle")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Collection<Place>places;
 
 	

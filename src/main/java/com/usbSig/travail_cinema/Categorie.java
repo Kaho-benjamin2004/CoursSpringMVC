@@ -3,6 +3,7 @@ package com.usbSig.travail_cinema;
 import java.io.Serializable;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +26,7 @@ public class Categorie  implements Serializable {
 	private String name;
 	
 	@OneToMany(mappedBy = "categorie")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Collection<Film>films;
 
 	
